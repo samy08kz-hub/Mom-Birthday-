@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mom ♡</title>
+<style>
+  :root { --ink:#3d2940; --rose:#c96f86; --cream:#fff8f2; --gold:#d6a95d; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; color:var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    background: radial-gradient(circle at top, #fff4ed 0, #f8dfe3 48%, #ead9ed 100%);
+    overflow-x:hidden;
+  }
+  .sparkle { position:fixed; color:#fff; opacity:.8; pointer-events:none; animation: drift 8s linear infinite; }
+  @keyframes drift { from{transform:translateY(105vh) rotate(0)} to{transform:translateY(-10vh) rotate(240deg)} }
+  .wrap { width:min(760px,92%); margin:0 auto; padding:34px 0 60px; text-align:center; }
+  .topline { letter-spacing:4px; text-transform:uppercase; font:11px Arial,sans-serif; color:#936276; }
+  h1 { font-size:clamp(42px,9vw,76px); line-height:1; margin:18px 0 12px; font-weight:normal; }
+  .sub { font-size:18px; color:#765363; }
+  .date { display:inline-block; margin:22px 0; padding:9px 18px; border:1px solid #d9aab7; border-radius:30px; font:12px Arial,sans-serif; letter-spacing:2px; }
+  .panel { background:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.9); border-radius:26px; padding:28px 22px; box-shadow:0 18px 50px #8c53601c; backdrop-filter:blur(8px); }
+  .flower { font-size:42px; margin:4px 0 12px; }
+  button { border:0; border-radius:30px; padding:14px 24px; margin:8px 4px; background:#9e5c73; color:white; font: bold 13px Arial,sans-serif; letter-spacing:1px; cursor:pointer; box-shadow:0 7px 18px #9e5c7330; transition:.2s; }
+  button:hover { transform:translateY(-2px); background:#81475e; }
+  button.secondary { background:#ead1d8; color:#71495a; }
+  .hidden { display:none; }
+  .letter { text-align:left; line-height:1.85; font-size:17px; margin-top:22px; animation:appear .8s ease both; }
+  @keyframes appear { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+  .letter p { margin:0 0 16px; }
+  .highlight { color:#a44f6b; font-style:italic; }
+  .memory { margin-top:22px; padding:18px; border-radius:18px; background:#fff5f3; font-size:16px; line-height:1.7; }
+  .wish { font-size:25px; color:#9e5c73; margin:22px 0 4px; }
+  footer { margin-top:28px; font:11px Arial,sans-serif; letter-spacing:2px; color:#987383; }
+  .heart { display:inline-block; color:#c96f86; animation:pulse 1.3s infinite; }
+  @keyframes pulse { 50%{transform:scale(1.22)} }
+  @media(max-width:480px){ .panel{padding:23px 17px}.letter{font-size:16px} }
+</style>
+</head>
+<body>
+<div id="sparkles"></div>
+<main class="wrap">
+  <div class="topline">A little corner of the internet, made with love</div>
+  <h1>Happy Birthday,<br><span class="highlight">Mom</span> ♡</h1>
+  <div class="sub">Today is all about celebrating you.</div>
+  <div class="date">14 · 11 · 1982 &nbsp; ✦ &nbsp; YOUR DAY</div>
+
+  <section class="panel">
+    <div class="flower">💐</div>
+    <h2 style="font-weight:normal;margin:0 0 8px;font-size:27px">I made something for you…</h2>
+    <p style="color:#806477;line-height:1.6">No wrapping paper. No big box. Just a little surprise waiting behind these buttons.</p>
+    <button id="openBtn" onclick="openLetter()">TOUCH HERE, MOM ♡</button>
+    <div id="letter" class="hidden letter">
+      <p>Dear Mom,</p>
+      <p>Happy Birthday to the woman whose love has been part of my every chapter. I may not always say everything perfectly, and I may not always show how much I notice, but I hope you know that you mean more to me than words can properly explain.</p>
+      <p>Thank you for the countless things you do that can sometimes look ordinary from the outside, but mean so much to the people who receive them. Thank you for your care, your patience, your strength, and for being there in ways that I might only fully understand as I grow older. So many of the little comforts in my life exist because of you.</p>
+      <p>I hope this new year of your life brings you peaceful mornings, genuine laughter, good health, beautiful surprises, and people who make you feel as loved as you deserve to feel. I hope you get more time for yourself, more reasons to smile, and moments where you can simply relax and enjoy life without worrying about everything else.</p>
+      <p>You deserve happiness that is not just for one birthday, but in the everyday moments too. I wish I could wrap up all the good things in the world and place them in your hands. Until then, here's a small page on the internet to remind you that someone is celebrating you today — and always.</p>
+      <p><span class="highlight">I love you, Mom. Thank you for being you.</span></p>
+      <p style="text-align:right">With all my love,<br><strong>Your child ♡</strong></p>
+    </div>
+    <div id="extra" class="hidden">
+      <div class="memory">🌷 <strong>A birthday wish just for you</strong><br>May every year ahead be softer, brighter, healthier, and kinder to you. May the things you quietly wish for find their way to you.</div>
+      <div class="wish">You are loved. Today and every day. <span class="heart">♥</span></div>
+      <button class="secondary" onclick="showSurprise()">ONE MORE LITTLE SURPRISE ✨</button>
+      <div id="surprise" class="hidden memory">If I could choose one thing for you, it would be this: a life filled with the same warmth and care that you have given to others. Happy 44th Birthday, Mom! 🎂</div>
+    </div>
+  </section>
+  <footer>MADE ESPECIALLY FOR YOU · 14 NOVEMBER</footer>
+</main>
+<script>
+  function openLetter(){
+    document.getElementById('letter').classList.remove('hidden');
+    document.getElementById('extra').classList.remove('hidden');
+    document.getElementById('openBtn').textContent='OPENED WITH LOVE ♡';
+    document.getElementById('openBtn').disabled=true;
+  }
+  function showSurprise(){ document.getElementById('surprise').classList.remove('hidden'); }
+  const symbols=['✦','♡','✧','·'];
+  const holder=document.getElementById('sparkles');
+  for(let i=0;i<24;i++){
+    const s=document.createElement('span'); s.className='sparkle';
+    s.textContent=symbols[i%symbols.length];
+    s.style.left=(Math.random()*100)+'%';
+    s.style.animationDelay=(Math.random()*8)+'s';
+    s.style.animationDuration=(6+Math.random()*8)+'s';
+    s.style.fontSize=(10+Math.random()*17)+'px';
+    holder.appendChild(s);
+  }
+</script>
+</body>
+</html>
